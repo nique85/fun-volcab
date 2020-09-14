@@ -1,0 +1,63 @@
+body{
+    background-color: black;
+}
+
+section{
+     margin: 50px 50px;  
+}
+
+.title, .input-search{
+    text-align: center ;
+}
+
+h2, h5, h6{
+    color: rgb(255, 255, 255);
+}
+
+li{
+    color: rgb(241, 202, 74);
+}
+
+p{
+    color: darkturquoise;
+}
+
+.form-control{
+    border-radius: 20px;
+    width: 100%;
+    max-width: 500px;
+    display: inline-block;
+}
+
+.inner-col {
+    height: 100vh;
+    border: solid rgb(240, 112, 52) 5px;
+    border-radius: 10px;
+    overflow-y: scroll;
+}
+
+.outer-col {
+    padding-right: 5px;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+}
+
+#gif-section{
+    display: inline-block;
+    /* overflow-y: scroll; */
+} 
+
+#definition {
+    display: inline-block;
+
+}
+
+@media(max-width: 991.98px){
+    #definition{
+        height: auto;
+    }
+}
+
+/* .display {
+    height: 50vh
+} */
