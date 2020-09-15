@@ -30,8 +30,8 @@ p{
 }
 
 .inner-col {
-    height: 100vh;
-    border: solid rgb(240, 112, 52) 5px;
+    height: 60vh;
+    border: solid rgb(240, 112, 52) 3px;
     border-radius: 10px;
     overflow-y: scroll;
 }
@@ -39,7 +39,9 @@ p{
 .outer-col {
     padding-right: 5px;
     margin-bottom: 10px;
+    border: rgb(215, 243, 114);
     box-sizing: border-box;
+
 }
 
 #gif-section{

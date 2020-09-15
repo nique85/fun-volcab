@@ -10,7 +10,7 @@ console.log('LINKED')
  searchBtn.onclick = ()=>{
     let word = inputField.value
 
-     if (word != "" ){   
+     if (word != "" ){  
          checkDictionary(word)
          document.getElementById("input-box").value = "" 
      }else{
@@ -32,7 +32,6 @@ inputField.addEventListener('keypress', (event)=>{
         }
     }
 })
-  
 
 
 function checkDictionary(word){
@@ -55,7 +54,7 @@ function checkDictionary(word){
             var word = response.entries[0].entry
     
             defSection.innerHTML = `<h2>${word}</h2>
-                                <hr>`
+                                <br>`
         
             response.entries.forEach(element => {
                 let div = document.createElement('div')
@@ -78,6 +77,7 @@ function checkDictionary(word){
     
                 getExample(word)
                 getGif(word)
+                getOtherWords(word)
             })
         }else {
             let noData = document.getElementById('definition')
@@ -152,11 +152,37 @@ function checkDictionary(word){
    
 }
 
+  // This function grabs the possible two words being used
+function getOtherWords(word){
+   $.ajax({
+        url: "https://www.dictionaryapi.com/api/v3/references/collegiate/json/" + word + "?key=bbfd65bd-3a2b-4bdd-8197-092a579c9a35",
+        method: "GET"
+        }).done(function(response){
 
+            let div = document.getElementById('similar')
+            while(div.firstChild != null ){
+                div.removeChild(div.firstChild)
+            }
 
+            div.innerHTML = `<h2>Other usage </h2>
+                                <br>`
 
+            let ul = document.createElement('ul')
+            ul.setAttribute('style', 'list-style: none;')
 
+            for (let i = 0; i < response.length; i++){
+                let wordId = response[i].meta.id
+                let wordCheck = response[i].hwi.hw
 
+                if (!(response[i].hom) && wordCheck.toLowerCase() != word){
+                    let list = document.createElement('li')
+                    list.innerHTML = `${wordId} <hr>`
+                    ul.append(list)
+                }
+                div.append(ul)
+            }
+    });
+}
 
 
 //https://gist.github.com/nealrs/28dbfe2c74dfdde26a30
@@ -203,4 +229,4 @@ function checkDictionary(word){
 
 // $.ajax(settings).done(function (response) {
 // 	console.log(response);
-// });
+// })
