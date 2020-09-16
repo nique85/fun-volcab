@@ -1,13 +1,36 @@
 body{
-    background-color: black;
+    background-color: rgb(3, 3, 3);
 }
 
-section{
-     margin: 50px 50px;  
+#header{
+     /* margin: 10px 10px;   */
+     background-image: url('header-background.png');
+     height: 40vh;
+     opacity: 0.5;
 }
 
-.title, .input-search{
-    text-align: center ;
+/* #header .title h1{
+    opacity: 1;
+} */
+
+#form-control{
+    margin: 50px 50px; 
+}
+
+.title{
+    padding: 100px 0; 
+}
+
+.title h1{
+    opacity: 1;
+    color: rgb(18, 20, 14);
+    background-color: white;
+    width: fit-content;
+    margin: auto;
+}
+
+.input-search{
+    text-align: center;
 }
 
 h2, h5, h6{
@@ -60,6 +83,11 @@ p{
     }
 }
 
-/* .display {
-    height: 50vh
-} */
+.modal{
+    position: fixed;
+    display: none;
+}
+
+.modal-content{
+    background-color: rgb(36, 5, 85);
+}
