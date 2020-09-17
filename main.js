@@ -36,23 +36,20 @@ inputField.addEventListener('keypress', (event)=>{
 
 function checkDictionary(word){
         var linguaApi = {
-            "async": true,
-            "crossDomain": true,
+            // "async": true,
+            // "crossDomain": true,
             "url": "https://lingua-robot.p.rapidapi.com/language/v1/entries/en/" + word,
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "lingua-robot.p.rapidapi.com",
                 "x-rapidapi-key": "8e2328f425msh2d328d9ba7a05b9p1b4dbcjsn643478137e8c",
-                "Access-Control-Allow-Origin": "*",
-                "Access-Control-Allow-Credentials": "true",
-                "Access-Control-Max-Age": "1800",
-                "Access-Control-Allow-Headers": "content-type",
-                "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, PATCH, OPTIONS" 
+                "Access-Control-Allow-Headers": "X-Requested-With",
+                'Access-Control-Allow-Origin': "https://nique85.github.io",
+                "Vary": "Origin"
             }
         }
-
-        $.ajax(linguaApi).done(function (response) {
-    
+        $.ajax(linguaApi).done(function (response){
+   
             if (response.entries.length != 0){
                 var defSection = document.getElementById('definition')
                 var word = response.entries[0].entry
