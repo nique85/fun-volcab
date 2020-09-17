@@ -1,7 +1,6 @@
 console.log('LINKED')
  //$(document).ready(function() {}
 
-
  // When search button is clicked
  let searchBtn = document.getElementById('search-button')
  let inputField = document.getElementById('input-box')
@@ -43,7 +42,12 @@ function checkDictionary(word){
             "method": "GET",
             "headers": {
                 "x-rapidapi-host": "lingua-robot.p.rapidapi.com",
-                "x-rapidapi-key": "8e2328f425msh2d328d9ba7a05b9p1b4dbcjsn643478137e8c"
+                "x-rapidapi-key": "8e2328f425msh2d328d9ba7a05b9p1b4dbcjsn643478137e8c",
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Credentials": "true",
+                "Access-Control-Max-Age": "1800",
+                "Access-Control-Allow-Headers": "content-type",
+                "Access-Control-Allow-Methods": "PUT, POST, GET, DELETE, PATCH, OPTIONS" 
             }
         }
 
@@ -89,6 +93,10 @@ function checkDictionary(word){
                 <image src="https://media.giphy.com/media/dxaySonu5EggWBqCWQ/giphy.gif"
                 " width="480" height="270" </image>`
                 
+                let noInput = document.getElementById('similar')
+                while(noInput.firstChild != null ){
+                    noInput.removeChild(noInput.firstChild)
+                }
             }
         });
 }
@@ -181,6 +189,7 @@ function getOtherWords(word){
 
                 if (!(response[i].hom) && wordCheck.toLowerCase() != word){
                     let list = document.createElement('li')
+                    list.style.cursor = 'pointer'
                     list.innerHTML = wordId
                     ul.append(list)
                 }
@@ -193,11 +202,6 @@ function getOtherWords(word){
                     let word = event.target.innerHTML
                     pasteInModal(word)
                 }
-                // item.addEventListener('click', (event)=>{
-                    
-                //     let word = event.target.innerHTML
-                //     pasteInModal(word)
-                // })
             }
     
         })
@@ -212,7 +216,6 @@ function pasteInModal(word){
     }
 
     $.ajax(dictionaryApi).done(function (response) {
-        console.log(response[0])
      
         let modalHeader = document.querySelectorAll('.modal-header')
         modalHeader[0].innerHTML = `<h5>${word}</h5>`
@@ -235,7 +238,6 @@ function pasteInModal(word){
                                 // Reference : https://www.techiedelight.com/load-and-append-image-to-dom-javascript/
                                 let gifImage = new Image()
                                 gifImage.src = gifURL
-                                console.log(gifImage)
                                 div.append(gifImage)
                             }
                 }

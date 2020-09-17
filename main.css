@@ -17,16 +17,56 @@ body{
     margin: 50px 50px; 
 }
 
-.title{
-    padding: 100px 0; 
+.div-1, .div-2, .div-3, .div-4, .div-5, .div-6, .div-7, .div-8, .div-9, .div-10, .div-11{
+    padding: 10px 20px;
+    display: inline-block;
+    /* opacity: 1; */
+    position: relative;
+    top: 30%;
+    left: 30%;
+    transform: translate(-50%, -50%);
+
+    color: white;
+    background-color: rgb(255, 115, 21);
+    width: fit-content;
+    margin: 50px 2px 1px 1px;
+    animation: slideInLeft;
+    animation-duration: 4s;
+    font-size: 2em;
+    border-radius: 0.8em;
 }
 
-.title h1{
-    opacity: 1;
-    color: rgb(18, 20, 14);
-    background-color: white;
-    width: fit-content;
-    margin: auto;
+.div-2, .div-8{
+    background-color: slateblue;
+    animation: bounce;
+    animation-duration: 4s;
+
+}
+
+.div-4, .div-10{
+    background-color: red;
+    animation: fadeInTopRight;
+    animation-duration: 4s;
+
+}
+
+.div-5, .div-7{
+    background-color: yellow;
+    animation: fadeInUp;
+    animation-duration: 4s;
+    color: black;
+}
+
+.div-9{
+    background-color: rgb(0, 225, 255);
+    animation: fadeInBottomRight;
+    animation-duration: 4s;
+}
+
+.div-3{
+    background-color: green;
+    animation: fadeInTopLeft;
+    animation-duration: 4s;
 }
 
 .input-search{
@@ -69,7 +109,6 @@ p{
 
 #gif-section{
     display: inline-block;
-    /* overflow-y: scroll; */
 } 
 
 #definition {
@@ -85,9 +124,15 @@ p{
 
 .modal{
     position: fixed;
-    display: none;
+    display: none;  
+}
+
+.modal-lg{
+    height: 90vh;
+    overflow-y: scroll;
 }
 
 .modal-content{
     background-color: rgb(36, 5, 85);
+
 }
