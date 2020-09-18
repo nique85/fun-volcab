@@ -7,27 +7,31 @@ console.log('LINKED')
  
  
  searchBtn.onclick = ()=>{
-    let word = inputField.value
+    let word = inputField.value.replace(/(^\s*)|(\s*$)/gi,"") 
 
-     if (word != "" ){  
+     if (word != "" && (word, /^[a-zA-Z]+$/.test(word))){ 
          checkDictionary(word)
          document.getElementById("input-box").value = "" 
      }else{
-         alert('Please enter a word.')
+         alert('A word should not be null and only contains alphabets')
      }
+
+   
  }
 
  //  When user press enter key on keyboard
 inputField.addEventListener('keypress', (event)=>{
-    
-
-    let word = inputField.value
 
     if (event.keyCode == 13){
         event.preventDefault()
-        if (word != "" ){   
-            checkDictionary(word)
-            document.getElementById("input-box").value = "" 
+
+        let word = inputField.value.replace(/(^\s*)|(\s*$)/gi,"") 
+
+        if (word != "" && (word, /^[a-zA-Z]+$/.test(word))){  
+                checkDictionary(word)
+                document.getElementById("input-box").value = "" 
+        }else{
+            alert('A word should not be null and only contains alphabets')
         }
     }
 })
